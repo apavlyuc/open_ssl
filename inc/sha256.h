@@ -6,7 +6,7 @@
 /*   By: apavlyuc <apavlyuc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/29 19:10:18 by apavlyuc          #+#    #+#             */
-/*   Updated: 2018/10/17 19:06:32 by apavlyuc         ###   ########.fr       */
+/*   Updated: 2018/10/19 15:09:11 by apavlyuc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ t_holder_sha256 *holder, char variant);
 /*
 **			ft_ssl/src/utility.c
 */
-char			*get_string(int fd);
+char			*get_string(int fd, size_t *len);
 /*
 **			print.c
 */

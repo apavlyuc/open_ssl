@@ -6,7 +6,7 @@
 /*   By: apavlyuc <apavlyuc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/29 15:48:39 by apavlyuc          #+#    #+#             */
-/*   Updated: 2018/10/17 19:08:30 by apavlyuc         ###   ########.fr       */
+/*   Updated: 2018/10/19 15:07:17 by apavlyuc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ t_flags_md5		parse_flags_md5(int ac, char **av);
 /*
 **			ft_ssl/src/utility.c
 */
-char			*get_string(int fd);
+char			*get_string(int fd, size_t *len);
 /*
 **			utility.c
 */

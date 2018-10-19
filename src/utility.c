@@ -6,7 +6,7 @@
 /*   By: apavlyuc <apavlyuc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/29 17:18:33 by apavlyuc          #+#    #+#             */
-/*   Updated: 2018/10/17 19:06:54 by apavlyuc         ###   ########.fr       */
+/*   Updated: 2018/10/19 16:52:19 by apavlyuc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_pair		make_pair(char *algo_name, void (*algo_func)(int, char**))
 	return (ret);
 }
 
-char		*get_string(int fd)
+char		*get_string(int fd, size_t *len)
 {
 	char	*ret;
 	char	*tmp;
@@ -49,12 +49,18 @@ char		*get_string(int fd)
 	int		nbytes;
 
 	ret = (char *)malloc(sizeof(char));
+	*len = 0;
 	while ((nbytes = read(fd, buffer, 99)) > 0)
 	{
 		buffer[nbytes] = 0;
 		tmp = ret;
-		ret = ft_strjoin(ret, buffer);
+		ret = (char *)malloc(sizeof(char) * (*len + nbytes));
+		ft_bzero(ret, *len + nbytes);
+		ft_memcpy(ret, tmp, *len);
+		ft_memcpy(ret + (*len), buffer, nbytes);
+		*len += nbytes;
 		free(tmp);
 	}
+	ret[*len] = '\0';
 	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: apavlyuc <apavlyuc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/29 16:07:02 by apavlyuc          #+#    #+#             */
-/*   Updated: 2018/10/17 19:51:12 by apavlyuc         ###   ########.fr       */
+/*   Updated: 2018/10/19 16:23:48 by apavlyuc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,5 @@ int			main(int ac, char **av)
 		return (1);
 	((t_pair *)needed_algo->content)->algo_func(ac, av);
 	ft_lstdel(&supported_algo, ft_delete);
-	system("leaks ft_ssl");
 	return (0);
 }

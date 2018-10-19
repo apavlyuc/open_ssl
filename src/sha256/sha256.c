@@ -6,7 +6,7 @@
 /*   By: apavlyuc <apavlyuc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/29 19:21:58 by apavlyuc          #+#    #+#             */
-/*   Updated: 2018/10/17 19:06:44 by apavlyuc         ###   ########.fr       */
+/*   Updated: 2018/10/19 15:25:15 by apavlyuc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,11 @@ static void	run_for_stdin(t_flags_sha256 *flags, char **av)
 {
 	char	*msg;
 	char	*answer;
+	size_t	len;
 
-	msg = get_string(0);
+	msg = get_string(0, &len);
 	(void)av;
-	answer = get_result_sha256((uint8_t *)msg, ft_strlen(msg));
+	answer = get_result_sha256((uint8_t *)msg, len);
 	print_result_sha256(flags, msg, answer, STDIN);
 	free(answer);
 	free(msg);
@@ -66,6 +67,7 @@ static void	run_for_files(t_flags_sha256 *flags, int ac, char **av)
 	char	*msg;
 	int		i;
 	int		fd;
+	size_t	len;
 
 	i = flags->files_index - 1;
 	while (++i < ac)
@@ -75,8 +77,8 @@ static void	run_for_files(t_flags_sha256 *flags, int ac, char **av)
 			print_params_usage(2, av[i]);
 		else
 		{
-			msg = get_string(fd);
-			answer = get_result_sha256((uint8_t *)msg, ft_strlen(msg));
+			msg = get_string(fd, &len);
+			answer = get_result_sha256((uint8_t *)msg, len);
 			print_result_sha256(flags, av[i], answer, FILES);
 			free(msg);
 			free(answer);
