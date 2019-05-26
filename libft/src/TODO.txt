@@ -1,6 +1,0 @@
-memory/
-	ft_malloc
-	ft_free
-
-all:
-	test this shit
